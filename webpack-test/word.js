@@ -1,0 +1,5 @@
+function word() {
+    return {
+
+    }
+}
