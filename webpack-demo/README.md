@@ -1,3 +1,4 @@
+<h1>webpack配置文件</h1>
 <h2>1.出口必须设置为绝对路径： path:path.resolve(__dirname,'dist/js')</h2>
 <h2>如果配置文件名称不是webpack.config.js，则打包命令为：webpack --config 配置文件名称；例如:如果配置文件名称为webpack.dev.js ，打包就启动webpack --config webpack.config.js</2>
 <ul>
