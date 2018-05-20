@@ -8,5 +8,5 @@
 </ul>
 
 <h1>2.2:webpack配置的entry和output new</h1>
-<h1>3.1:自动化生成项目中的html</h1>
+<h1>3.1:自动化生成项目中的html(上)</h1>
 <h2>通过html-webpack-plugin来实现</h2>
