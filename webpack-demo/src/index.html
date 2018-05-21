@@ -3,26 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <!--inline插入-->
+    <script>
+        <%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+    </script>
 </head>
 <body>
-<%= htmlWebpackPlugin.options.date %>
-<!--遍历htmlWebpackPlugin-->
-<% for(key in htmlWebpackPlugin){%>
-    <%= key %>
+<% for(var k in htmlWebpackPlugin.files.chunks) {%>
+    <% if(k !== 'main') {%>
+        <script src="<%= htmlWebpackPlugin.files.chunks[k].entry %>"></script>
+    <%}%>
 <% } %>
-<!--遍历htmlWebpackPlugin.files-->
-<% for(key in htmlWebpackPlugin.files){%>
-<%= key %>:<%= JSON.stringify(htmlWebpackPlugin.files[key]) %>
-<% } %>
-
-<!--遍历htmlWebpackPlugin.options-->
-<% for(key in htmlWebpackPlugin.options){%>
-<%= key %>:<%= JSON.stringify(htmlWebpackPlugin.options[key]) %>
-<% } %>
-<!--设置publicPath后的效果-->
 </body>
-<!--直接引入-->
-<script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
-<script src="<%= htmlWebpackPlugin.files.chunks.a.entry %>"></script>
+
 
 </html>
