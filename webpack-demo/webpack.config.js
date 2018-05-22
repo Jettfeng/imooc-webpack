@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     //entry:['./src/script/main.js','./src/script/a.js'],//数组形式
     entry:'./src/app.js',//对象形式
@@ -17,6 +18,23 @@ module.exports = {
                         presets: ['env']
                     }
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [ 'style-loader','css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: (loader) => [
+                                require('postcss-import')({ root: loader.resourcePath }),
+                                require('autoprefixer')({
+                                    browsers:['last 5 version']//浏览器的最近5个版本
+                                })
+                            ]
+                        }
+                    }
+                    ]
             }
         ]
     },
