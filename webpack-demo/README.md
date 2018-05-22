@@ -17,3 +17,5 @@
 <h1>3.3:自动化生成项目中的html(下)</h1>
 <h2>配置HtmlWebpackPlugin即可实现</h2>
 <p>在HtmlWebpackPlugin里面设置chunks或者excludeChunks按需引入，以及inline插入</p>
+
+<h1>4.1-4.3:loader及babel-loader</h1>
